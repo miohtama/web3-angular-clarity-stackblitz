@@ -1,0 +1,54 @@
+<div class="main-container">
+  <!-- https://clarity.design/documentation/header -->
+  <header class="header header-6">
+    <div class="branding">
+     <span class="title">Minimal example app</span>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+
+      <!-- Prompt user to choose a wallet -->
+      <div *ngIf="!connected">
+        <h1>
+          Connect wallet
+        </h1>
+        <p>Choose how to connect to your wallet.</p>
+        <wallet-selector></wallet-selector>
+      </div>
+
+      <div *ngIf="connected && !correctChain">
+        <div class="alert alert-warning" role="alert">
+          <div class="alert-items">
+              <div class="alert-item static">
+                  <div class="alert-icon-wrapper">
+                      <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+                  </div>
+                  <div class="alert-text">
+                      Your wallet is not connected to the correct blockchain.
+                      Please switch the network to <strong>Goerli</strong> in your wallet settings.
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="connected && correctChain">
+        <h1>
+          Connected
+        </h1>
+        <wallet-connection-status></wallet-connection-status>
+
+        <p>
+          Address: <strong>{{ selectedAddress }}</strong>
+        </p>
+
+        <p>
+          Balance:
+          <strong *ngIf="selectedAddressEthBalance != null">{{ selectedAddressEthBalance|number:'1.4-4' }} ETH</strong>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
