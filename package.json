@@ -30,8 +30,8 @@
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "web3": "^1.2.6",
-    "web3clr": "0.0.2",
-    "web3modal-provider-export": "^1.1.0",
+    "web3clr": "0.0.5",
+    "web3modal": "^1.2.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
